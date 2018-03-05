@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE configuration PUBLIC "-//ibatis.apache.org//DTD Config 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-config.dtd">  
+
+<configuration>  
+	
+
+	<settings>
+	
+		<setting name="lazyLoadingEnabled" value="true"/>
+		<setting name="aggressiveLazyLoading" value="false"/>
+		<setting name="lazyLoadTriggerMethods" value="equals,clone,hashCode,toString" />
+		<setting name="proxyFactory" value="CGLIB"/>
+		
+		<setting name="localCacheScope" value="SESSION" />		
+		<setting name="cacheEnabled" value="true" />		
+
+
+		<setting name="logImpl" value="LOG4J"/>
+		  		
+	</settings>
+
+	<typeHandlers>
+<!-- 	    <typeHandler handler="org.apache.ibatis.type.EnumOrdinalTypeHandler"  javaType="com.john.mybatis.model.AddressEnum"/>  -->
+	    <typeHandler handler="com.john.mybatis.config.AddressEnumTypeHandle"  javaType="com.john.mybatis.model.AddressEnum"/> 
+	</typeHandlers>
+    
+	
+    <environments default="environment">  
+        <environment id="environment">  
+            <transactionManager type="JDBC" />  
+            <dataSource type="POOLED">  
+                <property name="driver" value="com.mysql.jdbc.Driver" />  
+                <property name="url"   value="jdbc:mysql://120.76.85.35:13307/linklaws_dev" />  
+                <property name="username" value="linklaws" />  
+                <property name="password" value="linklaws_123" />  
+            </dataSource>  
+        </environment>  
+    </environments>  
+    
+    
+    <mappers> 
+		<package name= "com.john.mybatis.mapper"/> 
+	</mappers>  
+	
+</configuration>  

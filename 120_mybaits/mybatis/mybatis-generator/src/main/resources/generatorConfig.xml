@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+  
+<generatorConfiguration>
+   
+    
+    <!-- 整体设置 -->
+    	<!-- flat:只生成单个对象 -->
+    	<!-- MyBatis3Simple:不生成Example相关的查询方法 -->
+	    <context id="DB2Tables" 
+	    	defaultModelType = "flat"   
+	    	targetRuntime="MyBatis3">
+    
+    	
+    <!-- 中文处理 -->
+    	<property name="javaFileEncoding" value="UTF-8"/>
+    	
+    	
+    <!-- 插件 -->	
+    	<!-- 自定义序列化插件 一定会添加字段 可选接口 -->	
+    	<plugin type="com.john.config.MySerializablePlugin">
+    		<property name="suppressJavaInterface" value="false"/>
+    	</plugin>
+    	<!-- 添加无参构造 -->	
+    	<plugin type="com.john.config.MyMethodPlugin"></plugin>
+    	<!-- 添加swagger注释 -->	
+    	<plugin type="com.john.config.MySwaggerPlugin"></plugin>
+    	
+    	
+    	
+    <!-- 注释处理 -->
+    	<!-- MGB是通过JDBC的databasemeta获取数据库表和字段的注释,mysql支持,oracle需要配置 -->
+    	<!-- 使用注释匹配器 -->
+        <commentGenerator type="com.john.config.MyCommentGenerator">
+        	<!-- 不生成注解  设置为false 否则动态更新就用不了    -->
+            <property name="suppressAllComments" value="false"/>
+        	<!-- 时间戳  每次匹配都会生成 没意义 -->
+            <property name="suppressDate" value="true"/>
+        	<!-- 是否添加数据库备注信息 -->
+            <property name="addRemarkComments" value="true"/>
+        </commentGenerator>
+		
+		
+    <!--数据库链接地址账号密码-->
+        <jdbcConnection 
+        	driverClass="com.mysql.jdbc.Driver" 
+			connectionURL="jdbc:mysql://192.168.1.252:13307/linklaws_dev?useUnicode=true&amp;characterEncoding=UTF8" 
+			userId="linklaws" 
+			password="linklaws_123">
+        </jdbcConnection>
+<!--         <jdbcConnection 
+        	driverClass="com.mysql.jdbc.Driver" 
+			connectionURL="jdbc:mysql://120.76.85.35:13307/linklaws_cloud_lawfirm?useUnicode=true&amp;characterEncoding=UTF8" 
+			userId="linklaws" 
+			password="linklaws_123">
+        </jdbcConnection> -->
+        <!--数据库链接地址账号密码
+        <jdbcConnection 
+        	driverClass="com.mysql.jdbc.Driver" 
+			connectionURL="jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&amp;characterEncoding=UTF8" 
+			userId="root" 
+			password="root">
+        </jdbcConnection>-->
+        
+        
+    <!--生成Model类存放位置-->
+        <javaModelGenerator 
+        	targetPackage="com.linklaws.model" 
+        	targetProject="src\main\java">
+            <!-- 是否更具catalog和scheme生成包,false的话使用targetPackage -->
+            <property name="enableSubPackages" value="false"/>
+            <!-- 是否对数据库查询结果进行空处理  因为经常要保留空字符串 -->
+            <property name="trimStrings" value="false"/>
+            <!-- 设置基类-->
+            <property name="rootClass" value="com.john.core.model.SysModel"/>
+        </javaModelGenerator>
+        
+    <!--生成映射文件存放位置-->
+        <sqlMapGenerator 
+        	targetPackage="com.linklaws.mappers" 
+        	targetProject="src\main\resources">
+            <property name="enableSubPackages" value="false"/>
+        </sqlMapGenerator>
+        
+    <!--生成Dao类存放位置-->
+     	<!-- xmlmapper:自动生成的都是xml -->
+        <javaClientGenerator 
+        	type="XMLMAPPER" 
+        	targetPackage="com.linklaws.mappers" 
+        	targetProject="src\main\java">
+            <property name="enableSubPackages" value="false"/>
+        </javaClientGenerator>
+        
+        
+    <!--生成对应表及类名-->
+        <!-- tableName可以使用 %匹配 -->
+        <table tableName="t_check_verify_data" 
+        	enableCountByExample="false" enableUpdateByExample="false" 
+        	enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"
+        	
+        	enableDeleteByPrimaryKey="false"
+        	enableInsert="true"
+        	enableUpdateByPrimaryKey="true"
+        	>
+        	<!-- 生成完整有参构造,但是没有无参构造 -->
+        	<property name="immutable" value="true"/>
+        </table>
+        
+        
+    </context> 
+    
+</generatorConfiguration>

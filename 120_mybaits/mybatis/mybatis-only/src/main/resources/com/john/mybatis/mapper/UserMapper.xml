@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+                 
+ <mapper namespace="com.john.mybatis.mapper.UserMapper">
+ 
+ 	<cache></cache>
+ 
+	 <resultMap type="com.john.mybatis.model.User" id="userMap">
+         <id column="id" property="id" />
+         <result column="name" property="name" />
+         <result column="nick_name" property="nickName" />
+         <result column="create_time" property="createTime" />
+	 </resultMap>
+	 
+	 <select id="selectAll"  resultMap="userMap">
+		 select * from test_user
+	 </select>
+	 
+	 
+	 <insert id="insertBatch" useGeneratedKeys="true">
+	 	insert into test_user (id) values 
+	 	<foreach collection="ids" item="id" separator=","> ( #{id} )</foreach>
+	 </insert>
+	 
+	 <select id="selectByAddrId" resultMap="userMap">
+	 	select * from test_user where address_id = #{id}
+	 </select>
+ 
+ 	 <select id="selectById" resultMap="userMap">
+	 	select * from test_user where id = #{id}
+ 	 </select>
+ 
+ </mapper>

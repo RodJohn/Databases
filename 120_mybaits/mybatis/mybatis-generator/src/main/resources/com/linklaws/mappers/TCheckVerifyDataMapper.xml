@@ -1,0 +1,672 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.linklaws.mappers.TCheckVerifyDataMapper">
+  <resultMap id="BaseResultMap" type="com.linklaws.model.TCheckVerifyData">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="user_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="role" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="id_number" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="license_img" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="working_year" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="license_no" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="major_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="vocation_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="province_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="city_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="region_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="law_firm" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="address" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="period" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="contacts_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="contacts_job" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="tel" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="email" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="status" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="create_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="update_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="state" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="serve_id" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="sex" javaType="java.lang.Integer" jdbcType="INTEGER" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, user_id, role, name, id_number, license_img, working_year, license_no, major_id, 
+    vocation_id, province_id, city_id, region_id, law_firm, address, period, contacts_name, 
+    contacts_job, tel, email, status, create_time, update_time, state, serve_id, sex
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_check_verify_data
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <insert id="insert" parameterType="com.linklaws.model.TCheckVerifyData">
+    insert into t_check_verify_data (id, user_id, role, 
+      name, id_number, license_img, 
+      working_year, license_no, major_id, 
+      vocation_id, province_id, city_id, 
+      region_id, law_firm, address, 
+      period, contacts_name, contacts_job, 
+      tel, email, status, 
+      create_time, update_time, state, 
+      serve_id, sex)
+    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{role,jdbcType=TINYINT}, 
+      #{name,jdbcType=VARCHAR}, #{idNumber,jdbcType=VARCHAR}, #{licenseImg,jdbcType=VARCHAR}, 
+      #{workingYear,jdbcType=TINYINT}, #{licenseNo,jdbcType=VARCHAR}, #{majorId,jdbcType=INTEGER}, 
+      #{vocationId,jdbcType=INTEGER}, #{provinceId,jdbcType=INTEGER}, #{cityId,jdbcType=INTEGER}, 
+      #{regionId,jdbcType=INTEGER}, #{lawFirm,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
+      #{period,jdbcType=TINYINT}, #{contactsName,jdbcType=VARCHAR}, #{contactsJob,jdbcType=VARCHAR}, 
+      #{tel,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{state,jdbcType=TINYINT}, 
+      #{serveId,jdbcType=VARCHAR}, #{sex,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.linklaws.model.TCheckVerifyData">
+    insert into t_check_verify_data
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="role != null">
+        role,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="idNumber != null">
+        id_number,
+      </if>
+      <if test="licenseImg != null">
+        license_img,
+      </if>
+      <if test="workingYear != null">
+        working_year,
+      </if>
+      <if test="licenseNo != null">
+        license_no,
+      </if>
+      <if test="majorId != null">
+        major_id,
+      </if>
+      <if test="vocationId != null">
+        vocation_id,
+      </if>
+      <if test="provinceId != null">
+        province_id,
+      </if>
+      <if test="cityId != null">
+        city_id,
+      </if>
+      <if test="regionId != null">
+        region_id,
+      </if>
+      <if test="lawFirm != null">
+        law_firm,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="period != null">
+        period,
+      </if>
+      <if test="contactsName != null">
+        contacts_name,
+      </if>
+      <if test="contactsJob != null">
+        contacts_job,
+      </if>
+      <if test="tel != null">
+        tel,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="state != null">
+        state,
+      </if>
+      <if test="serveId != null">
+        serve_id,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="role != null">
+        #{role,jdbcType=TINYINT},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="idNumber != null">
+        #{idNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="licenseImg != null">
+        #{licenseImg,jdbcType=VARCHAR},
+      </if>
+      <if test="workingYear != null">
+        #{workingYear,jdbcType=TINYINT},
+      </if>
+      <if test="licenseNo != null">
+        #{licenseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="majorId != null">
+        #{majorId,jdbcType=INTEGER},
+      </if>
+      <if test="vocationId != null">
+        #{vocationId,jdbcType=INTEGER},
+      </if>
+      <if test="provinceId != null">
+        #{provinceId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null">
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="regionId != null">
+        #{regionId,jdbcType=INTEGER},
+      </if>
+      <if test="lawFirm != null">
+        #{lawFirm,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="period != null">
+        #{period,jdbcType=TINYINT},
+      </if>
+      <if test="contactsName != null">
+        #{contactsName,jdbcType=VARCHAR},
+      </if>
+      <if test="contactsJob != null">
+        #{contactsJob,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null">
+        #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=TINYINT},
+      </if>
+      <if test="serveId != null">
+        #{serveId,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.linklaws.model.TCheckVerifyData">
+    update t_check_verify_data
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="role != null">
+        role = #{role,jdbcType=TINYINT},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="idNumber != null">
+        id_number = #{idNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="licenseImg != null">
+        license_img = #{licenseImg,jdbcType=VARCHAR},
+      </if>
+      <if test="workingYear != null">
+        working_year = #{workingYear,jdbcType=TINYINT},
+      </if>
+      <if test="licenseNo != null">
+        license_no = #{licenseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="majorId != null">
+        major_id = #{majorId,jdbcType=INTEGER},
+      </if>
+      <if test="vocationId != null">
+        vocation_id = #{vocationId,jdbcType=INTEGER},
+      </if>
+      <if test="provinceId != null">
+        province_id = #{provinceId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null">
+        city_id = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="regionId != null">
+        region_id = #{regionId,jdbcType=INTEGER},
+      </if>
+      <if test="lawFirm != null">
+        law_firm = #{lawFirm,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="period != null">
+        period = #{period,jdbcType=TINYINT},
+      </if>
+      <if test="contactsName != null">
+        contacts_name = #{contactsName,jdbcType=VARCHAR},
+      </if>
+      <if test="contactsJob != null">
+        contacts_job = #{contactsJob,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null">
+        tel = #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null">
+        state = #{state,jdbcType=TINYINT},
+      </if>
+      <if test="serveId != null">
+        serve_id = #{serveId,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.linklaws.model.TCheckVerifyData">
+    update t_check_verify_data
+    set user_id = #{userId,jdbcType=INTEGER},
+      role = #{role,jdbcType=TINYINT},
+      name = #{name,jdbcType=VARCHAR},
+      id_number = #{idNumber,jdbcType=VARCHAR},
+      license_img = #{licenseImg,jdbcType=VARCHAR},
+      working_year = #{workingYear,jdbcType=TINYINT},
+      license_no = #{licenseNo,jdbcType=VARCHAR},
+      major_id = #{majorId,jdbcType=INTEGER},
+      vocation_id = #{vocationId,jdbcType=INTEGER},
+      province_id = #{provinceId,jdbcType=INTEGER},
+      city_id = #{cityId,jdbcType=INTEGER},
+      region_id = #{regionId,jdbcType=INTEGER},
+      law_firm = #{lawFirm,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      period = #{period,jdbcType=TINYINT},
+      contacts_name = #{contactsName,jdbcType=VARCHAR},
+      contacts_job = #{contactsJob,jdbcType=VARCHAR},
+      tel = #{tel,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      status = #{status,jdbcType=TINYINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      state = #{state,jdbcType=TINYINT},
+      serve_id = #{serveId,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.linklaws.model.TCheckVerifyData">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="user_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="role" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="id_number" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="license_img" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="working_year" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="license_no" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="major_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="vocation_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="province_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="city_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="region_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="law_firm" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="address" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="period" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="contacts_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="contacts_job" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="tel" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="email" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="status" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="create_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="update_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="state" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="serve_id" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="sex" javaType="java.lang.Integer" jdbcType="INTEGER" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, user_id, role, name, id_number, license_img, working_year, license_no, major_id, 
+    vocation_id, province_id, city_id, region_id, law_firm, address, period, contacts_name, 
+    contacts_job, tel, email, status, create_time, update_time, state, serve_id, sex
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_check_verify_data
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <insert id="insert" parameterType="com.linklaws.model.TCheckVerifyData">
+    insert into t_check_verify_data (id, user_id, role, 
+      name, id_number, license_img, 
+      working_year, license_no, major_id, 
+      vocation_id, province_id, city_id, 
+      region_id, law_firm, address, 
+      period, contacts_name, contacts_job, 
+      tel, email, status, 
+      create_time, update_time, state, 
+      serve_id, sex)
+    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{role,jdbcType=TINYINT}, 
+      #{name,jdbcType=VARCHAR}, #{idNumber,jdbcType=VARCHAR}, #{licenseImg,jdbcType=VARCHAR}, 
+      #{workingYear,jdbcType=TINYINT}, #{licenseNo,jdbcType=VARCHAR}, #{majorId,jdbcType=INTEGER}, 
+      #{vocationId,jdbcType=INTEGER}, #{provinceId,jdbcType=INTEGER}, #{cityId,jdbcType=INTEGER}, 
+      #{regionId,jdbcType=INTEGER}, #{lawFirm,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
+      #{period,jdbcType=TINYINT}, #{contactsName,jdbcType=VARCHAR}, #{contactsJob,jdbcType=VARCHAR}, 
+      #{tel,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{state,jdbcType=TINYINT}, 
+      #{serveId,jdbcType=VARCHAR}, #{sex,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.linklaws.model.TCheckVerifyData">
+    insert into t_check_verify_data
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="role != null">
+        role,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="idNumber != null">
+        id_number,
+      </if>
+      <if test="licenseImg != null">
+        license_img,
+      </if>
+      <if test="workingYear != null">
+        working_year,
+      </if>
+      <if test="licenseNo != null">
+        license_no,
+      </if>
+      <if test="majorId != null">
+        major_id,
+      </if>
+      <if test="vocationId != null">
+        vocation_id,
+      </if>
+      <if test="provinceId != null">
+        province_id,
+      </if>
+      <if test="cityId != null">
+        city_id,
+      </if>
+      <if test="regionId != null">
+        region_id,
+      </if>
+      <if test="lawFirm != null">
+        law_firm,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="period != null">
+        period,
+      </if>
+      <if test="contactsName != null">
+        contacts_name,
+      </if>
+      <if test="contactsJob != null">
+        contacts_job,
+      </if>
+      <if test="tel != null">
+        tel,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="state != null">
+        state,
+      </if>
+      <if test="serveId != null">
+        serve_id,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="role != null">
+        #{role,jdbcType=TINYINT},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="idNumber != null">
+        #{idNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="licenseImg != null">
+        #{licenseImg,jdbcType=VARCHAR},
+      </if>
+      <if test="workingYear != null">
+        #{workingYear,jdbcType=TINYINT},
+      </if>
+      <if test="licenseNo != null">
+        #{licenseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="majorId != null">
+        #{majorId,jdbcType=INTEGER},
+      </if>
+      <if test="vocationId != null">
+        #{vocationId,jdbcType=INTEGER},
+      </if>
+      <if test="provinceId != null">
+        #{provinceId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null">
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="regionId != null">
+        #{regionId,jdbcType=INTEGER},
+      </if>
+      <if test="lawFirm != null">
+        #{lawFirm,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="period != null">
+        #{period,jdbcType=TINYINT},
+      </if>
+      <if test="contactsName != null">
+        #{contactsName,jdbcType=VARCHAR},
+      </if>
+      <if test="contactsJob != null">
+        #{contactsJob,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null">
+        #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=TINYINT},
+      </if>
+      <if test="serveId != null">
+        #{serveId,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.linklaws.model.TCheckVerifyData">
+    update t_check_verify_data
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="role != null">
+        role = #{role,jdbcType=TINYINT},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="idNumber != null">
+        id_number = #{idNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="licenseImg != null">
+        license_img = #{licenseImg,jdbcType=VARCHAR},
+      </if>
+      <if test="workingYear != null">
+        working_year = #{workingYear,jdbcType=TINYINT},
+      </if>
+      <if test="licenseNo != null">
+        license_no = #{licenseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="majorId != null">
+        major_id = #{majorId,jdbcType=INTEGER},
+      </if>
+      <if test="vocationId != null">
+        vocation_id = #{vocationId,jdbcType=INTEGER},
+      </if>
+      <if test="provinceId != null">
+        province_id = #{provinceId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null">
+        city_id = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="regionId != null">
+        region_id = #{regionId,jdbcType=INTEGER},
+      </if>
+      <if test="lawFirm != null">
+        law_firm = #{lawFirm,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="period != null">
+        period = #{period,jdbcType=TINYINT},
+      </if>
+      <if test="contactsName != null">
+        contacts_name = #{contactsName,jdbcType=VARCHAR},
+      </if>
+      <if test="contactsJob != null">
+        contacts_job = #{contactsJob,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null">
+        tel = #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null">
+        state = #{state,jdbcType=TINYINT},
+      </if>
+      <if test="serveId != null">
+        serve_id = #{serveId,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.linklaws.model.TCheckVerifyData">
+    update t_check_verify_data
+    set user_id = #{userId,jdbcType=INTEGER},
+      role = #{role,jdbcType=TINYINT},
+      name = #{name,jdbcType=VARCHAR},
+      id_number = #{idNumber,jdbcType=VARCHAR},
+      license_img = #{licenseImg,jdbcType=VARCHAR},
+      working_year = #{workingYear,jdbcType=TINYINT},
+      license_no = #{licenseNo,jdbcType=VARCHAR},
+      major_id = #{majorId,jdbcType=INTEGER},
+      vocation_id = #{vocationId,jdbcType=INTEGER},
+      province_id = #{provinceId,jdbcType=INTEGER},
+      city_id = #{cityId,jdbcType=INTEGER},
+      region_id = #{regionId,jdbcType=INTEGER},
+      law_firm = #{lawFirm,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      period = #{period,jdbcType=TINYINT},
+      contacts_name = #{contactsName,jdbcType=VARCHAR},
+      contacts_job = #{contactsJob,jdbcType=VARCHAR},
+      tel = #{tel,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      status = #{status,jdbcType=TINYINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      state = #{state,jdbcType=TINYINT},
+      serve_id = #{serveId,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.john.mybatisgennerator.mappers.TLawfirmWebsiteBgMapper">
+  <resultMap id="BaseResultMap" type="com.john.mybatisgennerator.model.TLawfirmWebsiteBg">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="news_key" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="domain_key" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="index_key" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="achieve_key" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="workpost_key" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="team_key" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, news_key, domain_key, index_key, achieve_key, workpost_key, team_key
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_lawfirm_website_bg
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <insert id="insert" parameterType="com.john.mybatisgennerator.model.TLawfirmWebsiteBg">
+    insert into t_lawfirm_website_bg (id, news_key, domain_key, 
+      index_key, achieve_key, workpost_key, 
+      team_key)
+    values (#{id,jdbcType=INTEGER}, #{newsKey,jdbcType=VARCHAR}, #{domainKey,jdbcType=VARCHAR}, 
+      #{indexKey,jdbcType=VARCHAR}, #{achieveKey,jdbcType=VARCHAR}, #{workpostKey,jdbcType=VARCHAR}, 
+      #{teamKey,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.john.mybatisgennerator.model.TLawfirmWebsiteBg">
+    insert into t_lawfirm_website_bg
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="newsKey != null">
+        news_key,
+      </if>
+      <if test="domainKey != null">
+        domain_key,
+      </if>
+      <if test="indexKey != null">
+        index_key,
+      </if>
+      <if test="achieveKey != null">
+        achieve_key,
+      </if>
+      <if test="workpostKey != null">
+        workpost_key,
+      </if>
+      <if test="teamKey != null">
+        team_key,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="newsKey != null">
+        #{newsKey,jdbcType=VARCHAR},
+      </if>
+      <if test="domainKey != null">
+        #{domainKey,jdbcType=VARCHAR},
+      </if>
+      <if test="indexKey != null">
+        #{indexKey,jdbcType=VARCHAR},
+      </if>
+      <if test="achieveKey != null">
+        #{achieveKey,jdbcType=VARCHAR},
+      </if>
+      <if test="workpostKey != null">
+        #{workpostKey,jdbcType=VARCHAR},
+      </if>
+      <if test="teamKey != null">
+        #{teamKey,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.john.mybatisgennerator.model.TLawfirmWebsiteBg">
+    update t_lawfirm_website_bg
+    <set>
+      <if test="newsKey != null">
+        news_key = #{newsKey,jdbcType=VARCHAR},
+      </if>
+      <if test="domainKey != null">
+        domain_key = #{domainKey,jdbcType=VARCHAR},
+      </if>
+      <if test="indexKey != null">
+        index_key = #{indexKey,jdbcType=VARCHAR},
+      </if>
+      <if test="achieveKey != null">
+        achieve_key = #{achieveKey,jdbcType=VARCHAR},
+      </if>
+      <if test="workpostKey != null">
+        workpost_key = #{workpostKey,jdbcType=VARCHAR},
+      </if>
+      <if test="teamKey != null">
+        team_key = #{teamKey,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.john.mybatisgennerator.model.TLawfirmWebsiteBg">
+    update t_lawfirm_website_bg
+    set news_key = #{newsKey,jdbcType=VARCHAR},
+      domain_key = #{domainKey,jdbcType=VARCHAR},
+      index_key = #{indexKey,jdbcType=VARCHAR},
+      achieve_key = #{achieveKey,jdbcType=VARCHAR},
+      workpost_key = #{workpostKey,jdbcType=VARCHAR},
+      team_key = #{teamKey,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

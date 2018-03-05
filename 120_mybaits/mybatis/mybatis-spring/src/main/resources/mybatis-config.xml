@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE configuration PUBLIC "-//ibatis.apache.org//DTD Config 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-config.dtd">  
+
+<configuration>  
+	
+
+	<settings>
+	
+		<setting name="lazyLoadingEnabled" value="true"/>
+		<setting name="aggressiveLazyLoading" value="false"/>
+		<setting name="lazyLoadTriggerMethods" value="equals,clone,hashCode,toString" />
+		<setting name="proxyFactory" value="CGLIB"/>
+		
+		<setting name="localCacheScope" value="SESSION" />		
+		<setting name="cacheEnabled" value="true" />		
+
+		<setting name="logImpl" value="LOG4J"/>
+		  		
+	</settings>
+    
+    <mappers> 
+		<package name= "com.john.mybatis.mapper"/> 
+	</mappers>  
+	
+</configuration>  
