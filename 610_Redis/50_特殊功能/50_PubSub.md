@@ -1,7 +1,16 @@
+
+Redis的消息多用于实时性较高的消息推送，并不保证可靠性。Redis的消息也无法支持水平扩展4
+
 Pub/Sub功能（means Publish, Subscribe）即发布及订阅功能。
 
 分类：
-按照订阅方式分为基于主题（topic-based）、基于内容（content-based）、基于类型（type-based）的pub/sub方式。
+按照订阅方式分为基于主题（topic-based）、
+基于内容（content-based）、
+基于类型（type-based）的pub/sub方式。
+
+
+基础订阅
+模式订阅
 
 
 
@@ -81,6 +90,10 @@ Reading messages... (press Ctrl-C to quit)
 3) (integer) 1
 
 
+
+应用场景
+
+服务器集群监控管理
 
 
 参考
