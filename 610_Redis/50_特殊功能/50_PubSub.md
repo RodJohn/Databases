@@ -27,6 +27,29 @@ http://blog.csdn.net/canot/article/details/51975566
 
 
 
+# 操作
+
+SUBSCRIBE
+
+    SUBSCRIBE channel [channel ...]
+    
+    订阅给定的一个或多个频道的信息。
+
+PUBLISH
+    
+    PUBLISH channel message
+    
+    将信息 message 发送到指定的频道 channel 。
+
+PSUBSCRIBE
+    
+    PSUBSCRIBE pattern [pattern ...]
+    
+    订阅一个或多个符合给定模式的频道。
+
+
+
+每个模式以 * 作为匹配符
 
 充当订阅者订阅（first 与second）两个topic
 SUBSCRIBE first second

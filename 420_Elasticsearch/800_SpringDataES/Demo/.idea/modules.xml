@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/SpringDataES.iml" filepath="$PROJECT_DIR$/.idea/modules/SpringDataES.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/SpringDataES_main.iml" filepath="$PROJECT_DIR$/.idea/modules/SpringDataES_main.iml" group="SpringDataES" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/SpringDataES_test.iml" filepath="$PROJECT_DIR$/.idea/modules/SpringDataES_test.iml" group="SpringDataES" />
+    </modules>
+  </component>
+</project>
