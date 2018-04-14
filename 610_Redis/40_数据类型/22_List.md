@@ -32,6 +32,12 @@ LRANGE
     start 和 end 偏移量都是基于0的下标，即list的第一个元素下标是0（list的表头），第二个元素下标是1，以此类推。
     偏移量也可以是负数，表示偏移量是从list尾部开始计数。 例如， -1 表示列表的最后一个元素，-2 是倒数第二个，以此类推。
 
+LTRIM
+
+    LTRIM key start stop 
+    
+    让列表只保留指定区间内的元素，不在指定区间之内的元素都将被删除  
+      
 
 ## 阻塞队列
 
@@ -64,15 +70,31 @@ redis对外的数据结构类型list的底层是quicklist
 
 # 示例
 
-    127.0.0.1:6379> LPUSH list a b c    //依次在链表头部插入a、b、c
-    (integer) 3
-    127.0.0.1:6379> RPUSH list d e f    //依次在链表尾部插入d、e、f
-    (integer) 6
-    127.0.0.1:6379> LRANGE list 0 -1    //查看list的值
-    1) "c"
-    2) "b"
-    3) "a"
-    4) "d"
-    5) "e"
-    6) "f"
+    125:0>lpush mylist 1 2  3 4 
+    "4"
+    125:0>lrange mylist 0 -1
+     1)  "4"
+     2)  "3"
+     3)  "2"
+     4)  "1"
+    125:0>lrange mylist 0 -2
+     1)  "4"
+     2)  "3"
+     3)  "2"
+    125:0>ltrim mylist 0 -2
+    "OK"
+    125:0>lrange mylist 0 -1
+     1)  "4"
+     2)  "3"
+     3)  "2"
+    125:0>lpush mylist 5
+    "4"
+    125:0>lrange mylist 0 -1
+     1)  "5"
+     2)  "4"
+     3)  "3"
+     4)  "2"
+
+
+
 
