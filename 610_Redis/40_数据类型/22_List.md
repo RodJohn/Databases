@@ -7,9 +7,10 @@
     最多能容纳2^32 -1 个元素。
     
 
-# 2 操作
+# 2 命令
 
 ## 2.1 队列操作
+
 
 LPUSH
 
@@ -17,10 +18,12 @@ LPUSH
     
     将所有指定的值插入到存于 key 的列表的头部。
     如果 key 不存在，那么在进行 push 操作前会创建一个空列表。 
-    元素是从最左端的到最右端的、一个接一个被插入到 list 的头部。
+    元素是从最左端的到最右端的、一个接一个被插入到 list 的头部
+    返回list长度
 
 LPOP 
 
+    LPOP key 
     移除并且返回 key 对应的 list 的第一个元素。
 
 
@@ -43,11 +46,14 @@ LTRIM
 
 BLPOP 
 
+    BLPOP key timeout
     BLPOP 是阻塞式列表的弹出原语。 它是命令 LPOP 的阻塞版本，
     这是因为当给定列表内没有任何元素可供弹出的时候， 连接将被 BLPOP 命令阻塞。 
     当给定多个 key 参数时，按参数 key 的先后顺序依次检查各个列表，弹出第一个非空列表的头元素。
     当 BLPOP 被调用时，如果给定 key 内至少有一个非空列表，那么弹出遇到的第一个非空列表的头元素，并和被弹出元素所属的列表的名字 key 一起，组成结果返回给调用者。
     timeout 参数表示的是一个指定阻塞的最大秒数的整型值。当 timeout 为 0 是表示阻塞时间无限制。
+
+## 传递队列
 
 RPOPLPUSH 
 
@@ -59,8 +65,20 @@ RPOPLPUSH
     如果 source 和 destination 是同样的，那么这个操作等同于移除列表最后一个元素并且把该元素放在列表头部，
     所以这个命令也可以当作是一个旋转列表的命令。
 
+# 用法
+
+使用列表技巧： 
+lpush+lpop=Stack(栈) 
+lpush+rpop=Queue（队列） 
+lpush+ltrim=Capped Collection（有限集合） 
+lpush+brpop=Message Queue（消息队列）
+
+
 
 # 结构 原理
+
+
+链表
 
 encoding
 ziplist quicklist linkedlist

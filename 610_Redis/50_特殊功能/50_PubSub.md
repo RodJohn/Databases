@@ -1,4 +1,12 @@
 
+# 概述
+
+特点
+
+缺点
+
+
+
 Redis的消息多用于实时性较高的消息推送，并不保证可靠性。Redis的消息也无法支持水平扩展4
 
 Pub/Sub功能（means Publish, Subscribe）即发布及订阅功能。

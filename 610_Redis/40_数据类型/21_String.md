@@ -7,37 +7,62 @@
     数据的最大容量是512MB。
 
 
-# 2 操作
+# 2 命令
 
 ## 2.1 值操作
 
+SET
+
     SET key value 
-        设置指定 key 的值
+        key不存在时,插入键值对;
+        key存在时,修改值;
+    SETNX key value
+        key不存在时,插入键值对;否则报错
+    SET key value XX
+        key存在时,修改值;否则报错
+    
+    MSET key value [key value]
+        set的批量原子操作
+    MSETNX key value [key value]
+        setnx的批量原子操作
+        (有任意一个键存在,都会失败)
+        
+GET        
+        
     GET key 
         获取指定 key 的值。
         
+    MGET key [key]
+        批量获取指定 key 的值。
+
+GETSET
+        
     GETSET key value
         将给定 key 的值设为 value ，并返回 key 的旧值(old value)。
-
-    SETNX key value
-        只有在 key 不存在时设置 key 的值。
-    SET key value XX
-        只有键在已经存在的时候才可以设置成功
+        如果可以不存在则报错    
 
 ## 2.2 字符串操作
 
     APPEND key value
-        尾部追加   
+        尾部追加字符串
+        返回字符串长度
     substr(key, start, end)：
         返回名称为key的string的value的子串
 
 
 ## 2.3 数值操作
+  
+要求
    
-    当作原子计数器
-       
-    原子递增
-    有符号64位
+    值是数值类型
+    值是有符号64位
+    
+特点
+    
+    原子操作
+    操作完返回运算结果
+    
+操作
         
     INCR key
         将 key 中储存的数字值增一。
@@ -49,10 +74,30 @@
         将 key 中储存的数字值减一。
     DECRBY key decrement
         key 所储存的值减去给定的减量值（decrement） 。
+
+
+## 2.4 二进制操作
+
+好处
+
+    节省空间
+    
+操作
+
         
         
+        
+# 3 用法        
+        
+    普通键值对
+    存在判断
+    数值计算        
 
 # 结构
+
+
+
+
 
     对应的encoding 
     int
@@ -67,3 +112,6 @@
     
     incrby decrby  数值计算  版本
         
+        
+        
+    字符串  整数 浮点数  二进制    

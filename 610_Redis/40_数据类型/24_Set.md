@@ -18,7 +18,15 @@ SADD
     SADD key member [member ...] 
     
     添加一个或多个指定的member元素到集合的 key中.
-    如果已经在集合key中存在则忽略.如果集合key 不存在，则新建集合key,并添加member元素到集合key中.
+    如果member已经在集合中存在则忽略.
+    如果集合key不存在，则新建集合key,并添加member元素到集合key中.
+    返回成功添加的成员数量
+
+SISMEMBER 
+
+    SISMEMBER key member
+    member在set中返回1,不存在返回0
+
     
 SREM
  
@@ -46,7 +54,10 @@ SUNION
     SUNION key [key ...] 
     返回给定的多个集合的并集中的所有成员.
  
+SMOVE
 
+    SMOVE source destination memver
+    将member 
 
 # 结构
 

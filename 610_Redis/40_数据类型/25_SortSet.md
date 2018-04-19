@@ -16,8 +16,22 @@ ZADD
     //XX: 仅仅更新存在的成员，不添加新成员。
     //NX: 不更新存在的成员。只添加新成员。
     不添加XX/NX时,默认是不存在插入,存在着更新score
+    
     //CH: 修改返回值为发生变化的成员总数，原始是返回新添加成员的总数 (CH 是 changed 的意思)。更改的元素是新添加的成员，已经存在的成员更新分数。 所以在命令中指定的成员有相同的分数将不被计算在内。
     //INCR: 当ZADD指定这个选项时，成员的操作就等同ZINCRBY命令，对成员的分数进行递增操作。
+
+ZREM
+
+    ZREM key member 
+    
+## score操作
+
+ZSCORE
+
+    ZSCORE key member
+    
+    获取成员的score
+
 
 ZINCRBY 
     
@@ -29,35 +43,33 @@ ZINCRBY
     也有可能给一个负数来减少score的值。
 
 
-ZRANK 
 
-    ZRANK key member 
-    
-    返回有序集key中成员member的排名。
-    其中有序集成员按score值递增(从小到大)顺序排列。
-    排名以0为底，也就是说，score值最小的成员排名为0。
+ 
  
 ## 范围操作
 
-ZREVRANGE
+ZRANGEBYSCORE
+
+    ZRANGEBYSCORE key min max [WITHSCORES] [LIMIT offset count]
     
-    ZREVRANGE key start stop [WITHSCORES] 
-    
-    返回有序集key中，指定区间内的成员。
-    其中成员的位置按score值递减(从大到小)来排列。
+    返回有序集key中，指定区间(score)内的成员。
+    其中成员的位置按score值递减(从小到大)来排列。
     具有相同score值的成员按字典序的反序排列。
+    属性WITHSCORES表示返回的值带上score
+    默认包括score值等于min或max,可以通过给参数前增加(符号来使用可选的开区间
 
-ZREVRANGEBYSCORE 
+ZREMRANGEYSCORE     
+
+    ZREMRANGEYSCORE key min max 
     
-    ZREVRANGEBYSCORE key max min [WITHSCORES] [LIMIT offset count]   
-      
-    返回有序集合中指定分数区间内的成员，分数由高到低排序。
-
+    删除指定分数区间的memeber
+    
 ZCOUNT
  
     ZCOUNT key min max 
     
-    返回有序集key中，score值在min和max之间(默认包括score值等于min或max)的成员总数。
+    返回有序集中，score值在min和max之间(默认包括score值等于min或max)的成员总数。    
+
  
 # 结构
 

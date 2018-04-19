@@ -9,27 +9,44 @@
 
 
 
-# 2 操作
+# 2 命令
 
 ## 2.1 值操作
 
-HSET
+SET
 
-    HSET key field value 
-    将哈希表 key 中的字段 field 的值设为 value
+    HSET
     
-HGET
+        HSET key field value 
+        将哈希表 key 中的字段 field 的值设为 value
+        filed存在,则覆盖;不存在则添加
     
-    HGET key field 
-    用于获取与字段中存储的键哈希相关联的值。   
+    HSETNX
+        
+        HSETNX key field value 
+        只有在字段 field 不存在时，设置哈希表字段的值。
 
+DEL
+    
+    HDEL 
+    
+        HDEL key filed
+        删除
+        
+GET    
+            
+    HGET
+        
+        HGET key field 
+        用于获取与字段中存储的键哈希相关联的值。   
+    
+    HVALS 
+    
+        HVALS key 
 
 ## 2.3 特殊操作
 
-HSETNX
-    
-    HSETNX key field value 
-    只有在字段 field 不存在时，设置哈希表字段的值。
+
 
 HINCRBY
     
@@ -51,6 +68,12 @@ Redis Hashes是字符串字段和字符串值之间的映射
 当HashMap的成员比较少时Redis为了节省内存会采用类似一维数组的方式来紧凑存储，而不会采用真正的HashMap结构，
 这时对应的value的redisObject的encoding为zipmap，当成员数量增大时会自动转成真正的HashMap,此时encoding为ht。
 
+
+
+hash过大
+
+
+hash比string的好处,缺点
 
 # 原理
 
