@@ -211,3 +211,7 @@ public class TestUserTemplate {
         User user = opsForValue.get("超人");
         System.out.println(user);
     }
+    
+    
+    
+  

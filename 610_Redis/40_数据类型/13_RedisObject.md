@@ -33,7 +33,9 @@ encoding
 
     底层数据结构(ziplist)
 
-
+TYPE
+ 
+返回key所存储的value的数据结构类型，它可以返回string, list, set, zset 和 hash等不同的类型。
 
 
 
