@@ -74,6 +74,8 @@ MOVE
     expire key timestamp 
         设置key的过期时间
         时间参数是 UNIX 时间戳 Unix timestamp 
+        
+    或者在set的时候设置    
     
     persist key
         设置key的过期时间为-1 (永久有效)
