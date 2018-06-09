@@ -1,5 +1,13 @@
-概述
-使用explain命令查看SQL语句执行计划
+
+# 概述
+作用
+
+    使用explain命令查看SQL语句执行计划
+
+缺点
+
+    
+
 语法
 {EXPLAIN | DESCRIBE | DESC}
     [explain_type]
