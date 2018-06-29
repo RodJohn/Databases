@@ -1,7 +1,8 @@
 基础功能
 作用
 
-LIMIT 子句可以被用于限制 SELECT 语句返回指定的记录数。
+    LIMIT 子句可以被用于限制 SELECT 语句返回指定的记录数。
+    只是限制条数 无序
 语法
 
 SELECT * FROM table  
