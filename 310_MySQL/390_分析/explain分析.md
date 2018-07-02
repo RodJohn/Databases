@@ -3,7 +3,8 @@
 作用
 
     使用explain命令查看SQL语句执行计划
-
+    不一定完全真实
+    
 缺点
 
     
@@ -93,3 +94,11 @@ extra 中出现了 Using temporary Using filesort
 
 参考
 http://blog.csdn.net/luzhenyu111/article/details/78725533
+
+
+
+explain extended 
+
+show warnings;
+得到具体的优化器 执行方案
+
