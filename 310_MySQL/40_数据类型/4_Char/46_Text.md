@@ -1,5 +1,24 @@
 
 
+区别
+对于text字段，MySQL不允许有默认值。 varchar允许有默认值
+存储
+都需要额外地保存该字段的实际长度,叫overhead.
+
+- varchar 小于255byte  1byte overhead
+- varchar 大于255byte  2byte overhead
+- tinytext 0-255 1 byte overhead
+- text 0-65535 byte 2 byte overhead
+- mediumtext 0-16M  3 byte overhead
+overflow存储
+
+- varchar(255+)存储上和text很相似
+- text 是要要进overflow存储。 前768字节和原始的行存储在一块，多于768的行会存在和行相同的Page或是其它Page上。
+- varchar 在MySQL内部属于从blob发展出来的一个结构，在早期版本中innobase中，也是768字节以后进行overfolw存储。
+- 对于Innodb-plugin后： 对于变长字段处理都是20Byte后进行overflow存储
+
+
+
 text blob
 区别
 BLOB：采用二进制存储、没有字符集或排序规则
