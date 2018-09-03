@@ -31,7 +31,7 @@ text和blob在大量删除/更新以后会留下碎片空间,影响后续数据�
 设计
 最好尽量避免使用这两类型如果可以、可以把BLOB货TEXT 列分离成单独的表  
 
-   
+长度问题
 
 BLOB和TEXT都是为了存储很大的数据而设计的字符串数据类型，BLOB采用二进制存储，TEXT采用字符串存储。 
 TEXT类型下有：TINYTEXT，SAMLLTEXT，TEXT，MEDIUMTEXT，LONGTEXT； 
