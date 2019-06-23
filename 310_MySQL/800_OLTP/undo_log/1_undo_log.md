@@ -144,18 +144,3 @@ innodb_undo_tablespaces:
     如果没有值指定, 实例是使用默认设置初始化。
 
 
-# 日志格式
-
-    大多数对数据的变更操作包括INSERT/DELETE/UPDATE，其中INSERT操作在事务提交前只对当前事务可见，
-    因此产生的Undo日志可以在事务提交后直接删除（谁会对刚插入的数据有可见性需求呢！！），
-    而对于UPDATE/DELETE则需要维护多版本信息，在InnoDB里，UPDATE和DELETE操作产生的Undo日志被归成一类，即update_undo。
-    
-    二.undo log格式
-    1.insert undo log
-    指在insert操作中产生的undo log，因为insert操作的记录只对事务本身可见。因此该undo log在事务提交后直接删除，不需要进行purge操作。
-    
-    2.update undo log
-    记录的是对delete和update操作产生的undo log，该log需要提供mvcc机制，因此不能在事务提交时就进行删除。提交时放入undo log链表，等待purge线程进行清除。
-
-# MVCC
-
