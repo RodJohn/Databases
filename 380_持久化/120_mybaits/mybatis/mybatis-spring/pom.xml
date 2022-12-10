@@ -10,7 +10,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         
         <!--  依赖版本  -->
-        <springframework.version>4.3.2.RELEASE</springframework.version>
+        <springframework.version>6.0.0</springframework.version>
         <junit.version>4.12</junit.version>
         <mysql.version>5.1.38</mysql.version>
         <mybatis.version>3.4.1</mybatis.version>
